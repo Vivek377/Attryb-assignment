@@ -15,6 +15,19 @@ inventoryRoute.get("/", async (req, res) => {
 })
 
 
+inventoryRoute.get("/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const items = await InventoryModel.findOne({ _id: id });
+        res.status(200).send(items);
+
+    } catch (e) {
+        console.log(e);
+        res.status(400).send({ err: e.message })
+    }
+})
+
+
 inventoryRoute.post("/add", authentication, async (req, res) => {
     try {
 

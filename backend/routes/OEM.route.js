@@ -31,6 +31,20 @@ OEMRoute.get("/", async (req, res) => {
 })
 
 
+OEMRoute.get("/:id", async (req, res) => {
+    try {
+        
+        const { id } = req.params;
+        const items = await OEMModel.findOne({ _id: id });
+        res.status(200).send(items);
+
+    } catch (e) {
+        console.log(e);
+        res.status(400).send({ err: e.message })
+    }
+})
+
+
 OEMRoute.post("/add", async (req, res) => {
     try {
 
