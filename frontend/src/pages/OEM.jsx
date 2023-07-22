@@ -28,7 +28,7 @@ const OEM = () => {
 
   useEffect(() => {
     axios
-      .get(`https://clumsy-shoe-worm.cyclic.app/oem?q=${q}&sortBy=${sortBy}&order=${order}`)
+      .get(`https://drab-red-cape-buffalo-tutu.cyclic.app/oem?q=${q}&sortBy=${sortBy}&order=${order}`)
       .then((res) => setCars(res.data))
       .catch((err) => console.log(err));
   }, [q, sortBy, order]);

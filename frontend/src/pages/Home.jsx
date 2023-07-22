@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`https://clumsy-shoe-worm.cyclic.app/inventory`)
+      .get(`https://drab-red-cape-buffalo-tutu.cyclic.app/inventory`)
       .then((res) => setCars(res.data))
       .catch((err) => console.log(err));
   }, []);

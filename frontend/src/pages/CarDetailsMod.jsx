@@ -39,7 +39,7 @@ const CarDetalis = () => {
 
   const handleDelete = () => {
     axios
-      .delete(`https://clumsy-shoe-worm.cyclic.app/inventory/delete/${id}`, {
+      .delete(`https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/delete/${id}`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
@@ -106,7 +106,7 @@ const CarDetalis = () => {
     ) {
       axios
         .patch(
-          `https://clumsy-shoe-worm.cyclic.app/inventory/edit/${id}`,
+          `https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/edit/${id}`,
           payload,
           {
             headers: {
@@ -147,7 +147,7 @@ const CarDetalis = () => {
 
   useEffect(() => {
     axios
-      .get(`https://clumsy-shoe-worm.cyclic.app/inventory/${id}`)
+      .get(`https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/${id}`)
       .then((res) => setCar(res.data))
       .catch((e) => console.log(e));
   }, [id]);

@@ -44,7 +44,7 @@ const AddCar = () => {
       registrationPlace
     ) {
       axios
-        .post("https://clumsy-shoe-worm.cyclic.app/inventory/add", payload, {
+        .post("https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/add", payload, {
           headers: {
             Authorization: JSON.parse(localStorage.getItem("token")),
           },

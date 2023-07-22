@@ -16,7 +16,7 @@ const Login = () => {
     };
 
     axios
-      .post("https://clumsy-shoe-worm.cyclic.app/dealers/login", payload)
+      .post("https://drab-red-cape-buffalo-tutu.cyclic.app/dealers/login", payload)
       .then((res) => {
         toast({
           title: "Logged In.",

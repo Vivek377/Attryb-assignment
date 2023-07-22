@@ -8,7 +8,7 @@ const YourCars = () => {
 
   useEffect(() => {
     axios
-      .get(`https://clumsy-shoe-worm.cyclic.app/inventory/yourcars`, {
+      .get(`https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/yourcars`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },

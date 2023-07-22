@@ -9,7 +9,7 @@ const CarDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://clumsy-shoe-worm.cyclic.app/inventory/${id}`)
+      .get(`https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/${id}`)
       .then((res) => setCar(res.data))
       .catch((e) => console.log(e));
   }, [id]);

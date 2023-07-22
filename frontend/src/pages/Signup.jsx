@@ -18,7 +18,7 @@ const Signup = () => {
     };
 
     axios
-      .post("https://clumsy-shoe-worm.cyclic.app/dealers/signup", payload)
+      .post("https://drab-red-cape-buffalo-tutu.cyclic.app/dealers/signup", payload)
       .then((res) => {
         toast({
           title: "Account created.",
