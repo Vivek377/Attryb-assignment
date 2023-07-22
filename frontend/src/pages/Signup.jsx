@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Input, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Input, Text, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -29,13 +29,12 @@ const Signup = () => {
         });
         console.log(res.data);
         navigate("/login");
-
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div>
+    <Box p={"3rem"}>
       <Box
         display={"flex"}
         flexDirection={"column"}
@@ -46,10 +45,10 @@ const Signup = () => {
         p={"2rem"}
         borderRadius={"2em"}
         boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
-        bg={"pink.200"}
-        color={"white"}
       >
-        <Heading>Signup</Heading>
+        <Text fontSize={"4xl"} fontWeight={"bold"}>
+          Signup
+        </Text>
         <Input
           placeholder="Enter name"
           type="text"
@@ -70,8 +69,8 @@ const Signup = () => {
         />
 
         <Box>
-          <Text fontSize={"xs"} textDecoration={"underline"} cursor={"pointer"}>
-            <Link to={"/login"}>Already have an Account Click to login</Link>
+          <Text fontSize={"s"} textDecoration={"underline"} cursor={"pointer"}>
+            <Link to={"/login"}>Already have an Account? Click to login</Link>
           </Text>
         </Box>
 
@@ -79,7 +78,7 @@ const Signup = () => {
           Submit
         </Button>
       </Box>
-    </div>
+    </Box>
   );
 };
 

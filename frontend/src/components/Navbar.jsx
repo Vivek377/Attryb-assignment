@@ -1,47 +1,41 @@
 import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const Links = [
+  { name: "All Cars", path: "/" },
+  { name: "", path: "/recipe" },
+  { name: "Original Cars", path: "/oem" },
+  { name: "Your Cars", path: "/yourCars" },
+  { name: "Add Cars", path: "/addCar" },
+  { name: "Login", path: "/login" },
+];
 
 const Navbar = () => {
   return (
     <Box>
       <Flex
-        border={"1px solid black"}
+        boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
+        p={"1em"}
         justifyContent={"center"}
-        gap={"15rem"}
-        p={"1rem"}
-        bg={"orange.200"}
-        color={"white"}
+        gap={"9rem"}
       >
-        <Box>
-          <Link to={"/"}>
-            <Text fontWeight={"semibold"} fontSize={"xl"}>BUYC</Text>
-          </Link>
-        </Box>
-
-        <Box>
-          <Link to={"/oem"}>
-            <Text fontWeight={"semibold"} fontSize={"2xl"}>
-              Original car specs
-            </Text>
-          </Link>
-        </Box>
-
-        <Box>
-          <Link to={"/addCar"}>
-            <Text fontWeight={"semibold"} fontSize={"2xl"}>
-              Add cars
-            </Text>
-          </Link>
-        </Box>
-
-        <Box>
-          <NavLink to={"/login"}>
-            <Text fontWeight={"semibold"} fontSize={"2xl"}>
-              Login
+        {Links.map((link) => (
+          <NavLink
+            style={({ isActive }) => ({
+              padding: "0.3rem",
+              borderBottom: isActive
+                ? "2px solid #2F855A"
+                : "2px solid transparent",
+            })}
+            key={link.name}
+            to={link.path}
+          >
+            <Text fontSize={"xl"} fontWeight={"semibold"}>
+              {link.name}
             </Text>
           </NavLink>
-        </Box>
+        ))}
       </Flex>
     </Box>
   );

@@ -1,7 +1,7 @@
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
+import HomeCard from "../components/HomeCard";
 
 const Home = () => {
   const [cars, setCars] = useState([]);
@@ -14,14 +14,21 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <Stack direction={"row"} spacing={"5em"} w={"90%"} m={"auto"} mt={"3rem"} mb={"3rem"}>
+    <Box>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        w={"90%"}
+        m={"auto"}
+        mt={"3rem"}
+        p={"3rem"}
+        gap={6}
+      >
         {cars &&
           cars.map((ele) => {
-            return <Card key={ele._id} {...ele} />;
+            return <HomeCard key={ele._id} {...ele} />;
           })}
-      </Stack>
-    </div>
+      </Grid>
+    </Box>
   );
 };
 

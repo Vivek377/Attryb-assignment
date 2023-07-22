@@ -5,15 +5,19 @@ import Signup from "../pages/Signup";
 import Home from "../pages/Home";
 import AddCar from "../pages/AddCar";
 import OEM from "../pages/OEM";
-import CarDetalis from "../pages/CarDetalis";
+import CarDetails from "../pages/CarDetails";
+import CarDetailsMod from "../pages/CarDetailsMod";
+import YourCars from "../pages/YourCars";
 
 const AllRoutes = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<CarDetalis />} />
+        <Route path="/:id" element={<CarDetails />} />
+        <Route path="/details/:id" element={<CarDetailsMod />} />
         <Route path="/addCar" element={<AddCar />} />
+        <Route path="/yourCars" element={<YourCars />} />
         <Route path="/oem" element={<OEM />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

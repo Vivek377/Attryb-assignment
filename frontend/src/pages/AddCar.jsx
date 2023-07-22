@@ -1,6 +1,7 @@
 import { Box, Button, Heading, Input, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddCar = () => {
   const [title, setTitle] = useState("");
@@ -14,6 +15,7 @@ const AddCar = () => {
   const [originalPaint, setOriginalPaint] = useState("");
   const [registrationPlace, setregistrationPlace] = useState("");
   const toast = useToast();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     const payload = {
@@ -55,6 +57,7 @@ const AddCar = () => {
             duration: 4000,
             isClosable: true,
           });
+          navigate("/");
         })
         .catch((err) => {
           toast({
@@ -78,21 +81,20 @@ const AddCar = () => {
   };
 
   return (
-    <div>
+    <Box p={"3rem"}>
       <Box
         display={"flex"}
         flexDirection={"column"}
-        w={"30%"}
+        w={"35%"}
         m={"auto"}
         mt={"2rem"}
         gap={"2rem"}
         p={"2rem"}
         borderRadius={"2em"}
         boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
-        bg={"pink.200"}
-        color={"white"}
+        fontFamily={"sans-serif"}
       >
-        <Heading>Add your car to sell</Heading>
+        <Heading fontFamily={"sans-serif"}>Add Your Car</Heading>
         <Input
           placeholder="Enter title"
           type="text"
@@ -100,7 +102,7 @@ const AddCar = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <Input
-          placeholder="Enter image"
+          placeholder="Enter image url"
           type="text"
           value={image}
           onChange={(e) => setImage(e.target.value)}
@@ -124,13 +126,13 @@ const AddCar = () => {
           onChange={(e) => setColors(e.target.value)}
         />
         <Input
-          placeholder="Enter scratches"
+          placeholder="Enter scratches on car"
           type="text"
           value={scratches}
           onChange={(e) => setScratches(e.target.value)}
         />
         <Input
-          placeholder="Enter accidents"
+          placeholder="Enter accidents happened"
           type="text"
           value={accidents}
           onChange={(e) => setAccidents(e.target.value)}
@@ -157,7 +159,7 @@ const AddCar = () => {
           Submit
         </Button>
       </Box>
-    </div>
+    </Box>
   );
 };
 

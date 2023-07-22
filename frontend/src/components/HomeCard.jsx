@@ -2,7 +2,7 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ image, title, price, km, _id }) => {
+const HomeCard = ({ image, title, price, km, _id }) => {
   return (
     <div>
       <Box
@@ -10,7 +10,7 @@ const Card = ({ image, title, price, km, _id }) => {
         borderRadius={"1em"}
         boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px"}
       >
-        <Link to={`/details/${_id}`}>
+        <Link to={`/${_id}`}>
           <Image w={"100%"} src={image} />
           <Text fontWeight={"semibold"} fontSize={"xl"}>
             {title}
@@ -23,4 +23,4 @@ const Card = ({ image, title, price, km, _id }) => {
   );
 };
 
-export default Card;
+export default HomeCard;
