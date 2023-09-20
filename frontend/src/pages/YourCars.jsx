@@ -1,10 +1,11 @@
-import { Grid } from "@chakra-ui/react";
+import { Grid, Heading, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import axios from "axios";
 
 const YourCars = () => {
   const [cars, setCars] = useState([]);
+  const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
     axios
@@ -16,6 +17,14 @@ const YourCars = () => {
       .then((res) => setCars(res.data))
       .catch((e) => console.log(e));
   }, []);
+
+  if (!token) {
+    return (
+      <div>
+        <Text fontSize={"4xl"} mt={"3rem"}>You need to log in first to see your cars</Text>
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -8,8 +8,10 @@ import {
   Button,
   Flex,
   Grid,
+  Heading,
   Input,
   Select,
+  Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -78,7 +80,7 @@ const OEM = () => {
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                <Button onClick={() => handleSort("price", "asc")}>
+                <Button onClick={() => handleSort("price", "desc")}>
                   Low to High
                 </Button>
                 <Button onClick={() => handleSort("price", "asc")}>
@@ -127,6 +129,9 @@ const OEM = () => {
           />
         </Box>
       </Flex>
+      {
+        !cars.length && <Text  fontSize={"4xl"} mt={"3rem"}>No cars available</Text>
+      }
       <Grid
         templateColumns="repeat(4, 1fr)"
         w={"90%"}

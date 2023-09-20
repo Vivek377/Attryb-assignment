@@ -8,6 +8,7 @@ import OEM from "../pages/OEM";
 import CarDetails from "../pages/CarDetails";
 import CarDetailsMod from "../pages/CarDetailsMod";
 import YourCars from "../pages/YourCars";
+import OEMDetails from "../pages/OEMDetails";
 
 const AllRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AllRoutes = () => {
         <Route path="/addCar" element={<AddCar />} />
         <Route path="/yourCars" element={<YourCars />} />
         <Route path="/oem" element={<OEM />} />
+        <Route path="/oem/:id" element={<OEMDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

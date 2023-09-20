@@ -29,7 +29,7 @@ const CarDetalis = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
-  const [colors, setColors] = useState([]);
+  const [colors, setColors] = useState("");
   const [km, setKm] = useState("");
   const [scratches, setScratches] = useState("");
   const [accidents, setAccidents] = useState("");
@@ -39,11 +39,14 @@ const CarDetalis = () => {
 
   const handleDelete = () => {
     axios
-      .delete(`https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/delete/${id}`, {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      })
+      .delete(
+        `https://drab-red-cape-buffalo-tutu.cyclic.app/inventory/delete/${id}`,
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      )
       .then((res) => {
         toast({
           title: "Car Deleted.",
@@ -80,11 +83,12 @@ const CarDetalis = () => {
   };
 
   const handleEdit = () => {
+    const tureColors = colors.split(",");
     const payload = {
       title,
       image,
       price,
-      colors: colors.split(","),
+      colors: tureColors,
       km,
       scratches,
       accidents,
@@ -151,6 +155,8 @@ const CarDetalis = () => {
       .then((res) => setCar(res.data))
       .catch((e) => console.log(e));
   }, [id]);
+
+  console.log(car);
 
   if (car.colors) {
     return (

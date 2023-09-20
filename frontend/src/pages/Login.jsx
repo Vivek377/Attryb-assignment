@@ -16,17 +16,30 @@ const Login = () => {
     };
 
     axios
-      .post("https://drab-red-cape-buffalo-tutu.cyclic.app/dealers/login", payload)
+      .post(
+        "https://drab-red-cape-buffalo-tutu.cyclic.app/dealers/login",
+        payload
+      )
       .then((res) => {
-        toast({
-          title: "Logged In.",
-          description: "You're logged in now.",
-          status: "success",
-          duration: 4000,
-          isClosable: true,
-        });
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        navigate("/");
+        if (res.data.token) {
+          toast({
+            title: "Logged In.",
+            description: "You're logged in now.",
+            status: "success",
+            duration: 4000,
+            isClosable: true,
+          });
+          localStorage.setItem("token", JSON.stringify(res.data.token));
+          navigate("/");
+        } else {
+          toast({
+            title: "Failed.",
+            description: `${res.data.msg}`,
+            status: "error",
+            duration: 4000,
+            isClosable: true,
+          });
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -48,13 +61,13 @@ const Login = () => {
           Login
         </Text>
         <Input
-          placeholder="Emter email"
+          placeholder="Enter email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
-          placeholder="Emter password"
+          placeholder="Enter password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
